@@ -1,0 +1,70 @@
+#
+#       CP/M logical disk drives are defined using the
+#       options given below, where the sequence is:
+#
+#       disks   n
+#       diskdef parameter-list-0
+#       diskdef parameter-list-1
+#       ...
+#       diskdef parameter-list-n
+#       endef
+#
+#       where n is the number of logical disk drives attached
+#       to the CP/M system, and parameter-list-i defines the
+#       characteristics of the ith drive (i=0,1,...,n-1)
+#
+#       each parameter-list-i takes the form
+#               dn,fsc,lsc,[skf],bls,dks,dir,cks,ofs,[0]
+#       where
+#       dn      is the disk number 0,1,...,n-1
+#       fsc     is the first sector number (usually 0 or 1)
+#       lsc     is the last sector number on a track
+#       skf     is optional "skew factor" for sector translate
+#       bls     is the data block size (1024,2048,...,16384)
+#       dks     is the disk size in bls increments (word)
+#       dir     is the number of directory elements (word)
+#       cks     is the number of dir elements to checksum
+#       ofs     is the number of tracks to skip (word)
+#       [0]     is an optional 0 which forces 16K/directory entry
+#
+#       for convenience, the form
+#               dn,dm
+#       defines disk dn as having the same characteristics as
+#       a previously defined disk dm.
+#
+#       a standard four drive CP/M system is defined by
+#               disks   4
+#               diskdef 0,1,26,6,1024,243,64,64,2
+#               diskdef 1,0
+#               diskdef 2,0
+#               diskdef 3,0
+#               endef
+#
+
+# Number of disks
+disks   6
+
+#
+#         +-- disk number
+#         |  +-- first sector number on a track
+#         |  |  +-- last sector number on a track
+#         |  |  |    +-- skew (optional)
+#         |  |  |    |   +-- data block size (bls)
+#         |  |  |    |   |     +-- disk size in bls increments
+#         |  |  |    |   |     |     +--number of directory elements
+#         |  |  |    |   |     |     |     +-- number of dir elements to checksum
+#         |  |  |    |   |     |     |     |   +-- number of tracks to skip
+#         |  |  |    |   |     |     |     |   |
+# diskdef 2, 1, 128,   , 2048, 2048, 1024,  0, 0
+
+# 8" IBM-3740 floppy
+diskdef   0, 1,  26,  6, 1024,  243,   64, 64, 2
+diskdef   1, 0
+diskdef   2, 0
+diskdef   3, 0
+
+# 4MB harddisk
+diskdef   4, 1, 128,   , 2048, 2040, 1024,  0, 0
+diskdef   5, 4
+
+endef

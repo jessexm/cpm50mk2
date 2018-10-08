@@ -1,0 +1,22 @@
+
+This directory contains the source for the CP/M 2.2 BIOS and Disk Manager.
+
+The source for mkdskdef is also included here. The mkdskdef utility
+take in a CP/M disk definition and produces an include file defining
+the static disk geometry and data area tables.
+
+The disk image modified_cpm2-1.dsk is a modified version the file cpm2-1.dsk
+copied from the Z80pack 1.36 distribution and is the core of the drivea.dsk
+image produced by the makefile.
+
+The CP/M system image, cpm.sys, was extracted cpm22-b.zip.
+CP/M 2.2 BINARY : This is the distribution disk for the Xerox 1800 system.
+http://www.cpm.z80.de/download/cpm22-b.zip
+
+The ASxxxx Cross Assemblers package is used for assembling the bios.
+http://shop-pdp.net/ashtml/asxxxx.htm
+
+Cpmtools package is used to manipulate disk images.
+http://www.moria.de/~michael/cpmtools/
+
+The SRecord package is used to manipulate file objects

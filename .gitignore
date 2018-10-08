@@ -1,0 +1,13 @@
+
+dskmanbios/*.rel
+dskmanbios/*.s28
+dskmanbios/cpm50mk2dsk.inc
+dskmanbios/drivea.cpm
+dskmanbios/mkdskdef
+dskmanbios/dskman.com
+
+**/Debug/*.lst
+**/Debug/*.obj
+**/Debug/*.hex
+**/Debug/*.lod
+**/Debug/*.map

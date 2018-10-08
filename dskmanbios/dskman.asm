@@ -1,0 +1,33 @@
+;
+; dskman.asm -- shim between Z80 and ADL mode
+;
+
+;
+;
+; Copyright (c) 2018 Jesse Marroquin
+;
+; Permission to use, copy, modify, and distribute this software for any
+; purpose with or without fee is hereby granted, provided that the above
+; copyright notice and this permission notice appear in all copies.
+;
+; THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+; WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+; MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+; ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+; WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+; ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+; OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+;
+;
+
+		.z80
+;
+; void disk_man(void)
+;
+disk_man .equ 0x01000E
+
+dskman:
+		call.il disk_man
+		ret
+
+		.end
